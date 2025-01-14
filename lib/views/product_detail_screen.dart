@@ -16,6 +16,7 @@ class ProductDetails extends StatelessWidget {
 
     var controller = Get.put(ApiController());
     return Obx(
+
      () =>  Scaffold(
         appBar: AppBar(
           title: Text("Product Details"),

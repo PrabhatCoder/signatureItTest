@@ -27,6 +27,11 @@ class DashBoardView extends StatelessWidget {
 
     return Obx(
       () =>  Scaffold(
+
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Text("Dashboard"),
+        ),
           body:  GridView.builder(
 
               itemCount:controller.list!=null? controller.list.length:10,

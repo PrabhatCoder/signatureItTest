@@ -59,7 +59,7 @@ class LoginController extends GetxController {
       }
       final userCredentials =await AuthenticationRepository.instance.signInWithGoolge();
       Get.offAll(DashBoardView());
-      print("safnjdbsgh${userCredentials?.additionalUserInfo?.username}");
+     // print("safnjdbsgh${userCredentials?.additionalUserInfo?.username}");
       await saveUserRecord(userCredentials);
 
 
