@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:untitled/view_controller/ApiController.dart';
 
+import '../snack_bar/SnackBar_view.dart';
 import '../view_controller/widgets_constant/rounded_images.dart';
+import 'getx_storage.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});
@@ -50,8 +53,14 @@ class ProductDetails extends StatelessWidget {
                backgroundColor: Colors.blue,),
 
              onPressed: () {
+               GetStorageData().saveData("product", controller.itemDetails.value);
+               if(GetStorage().hasData("product")){
+                 SnackBarView.successSnackBar(title: "Add To Cart SuccessFull.....");
 
-         }, child: Text("Add to Cart",style: TextStyle(color: Colors.white,fontSize: 16),)),
+               }else{
+                 SnackBarView.successSnackBar(title: "Delete To Cart SuccessFull.....");
+               }
+         }, child: Text((GetStorage().hasData("product"))?"Delete to Cart":"Add To Cart",style: TextStyle(color: Colors.white,fontSize: 16),)),
        ),
       ),
     );
